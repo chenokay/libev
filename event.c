@@ -174,6 +174,7 @@ ev_x_cb (struct event *ev, int revents)
 static void
 ev_x_cb_sig (EV_P_ struct ev_signal *w, int revents)
 {
+    // 根据struc成员变量便宜求解结构体起始地址
   struct event *ev = (struct event *)(((char *)w) - offsetof (struct event, iosig.sig));
 
   if (revents & EV_ERROR)

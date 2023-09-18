@@ -3937,6 +3937,7 @@ ev_timer_again (EV_P_ ev_timer *w) EV_THROW
         {
           ev_at (w) = mn_now + w->repeat;
           ANHE_at_cache (timers [ev_active (w)]);
+          // COMMENT  红黑树调整
           adjustheap (timers, timercnt, ev_active (w));
         }
       else
